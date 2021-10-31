@@ -5,10 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="app.js"></script>
 </head>
 <body>
-    <h1>Avengers Character Search</h1>
-    <button type="Search" class="btn"> Search</button>
+    <header>
+        <h1>Avengers Character Search</h1>
+    </header>
+    <div class="body">
+        <form method="POST" action="superheroes.php">
+            <div class="form-group">
+                <label for="name">Search by superhero by full name or alias</label>
+                <input type="text" name="name" id="name" placeholder="eg. Bruce Banner or Hulk">
+            </div>
+            <div class="button">
+                <button type="Search" id="btn1" > Search</button> 
+            </div>
+             
+        </form>  
+        <div id="msg"></div>
+    </div>
+          
 </body>
 </html>

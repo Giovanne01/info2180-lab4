@@ -64,9 +64,39 @@ $superheroes = [
 ];
 
 ?>
+<style>
+    #not{
+        color: red;
+    }
+</style>
+
+<?php if ($_SERVER['REQUEST_METHOD']==='POST'):?>
+    <?$result = $_POST['msg']?>
+    <?php $check= true ?>
+    <h2><?="RESULTS:"?></h2>
+
+<?php endif;?>
 
 <ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
+<?php if ($result==''): ?>
+    <?php foreach ($superheroes as $superhero): ?>
+        <li><?= $superhero['alias']; ?></li>
+    <?php endforeach; ?>
+    <?php $check= false ?>
+<?php endif?> 
 </ul>
+
+
+<?php foreach ($superheroes as $superhero): ?>
+    <?php if ($superhero['alias']==$result || $superhero['name']==$result): ?>
+        <h3><?= $superhero['name'] ?></h3>
+        <h4><?= "A.K.A ". $superhero['alias'] ?></h4>
+        <p><?= $superhero['biography'] ?></p>
+        <?php $check= false ?>
+    <?php endif?>
+<?php endforeach; ?>
+
+
+<?php if ($check==true):?>
+    <h3 id="not"><?="SUPERHERO NOT FOUND!!"?></h3>
+<?php endif?>
