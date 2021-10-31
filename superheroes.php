@@ -70,8 +70,16 @@ $superheroes = [
     }
 </style>
 
+
+<?php function clean($msg){
+    $msg = trim($msg);
+    $msg = stripcslashes($msg);
+    $msg = strip_tags($msg);
+    return $msg;
+}?>
+
 <?php if ($_SERVER['REQUEST_METHOD']==='POST'):?>
-    <?$result = $_POST['msg']?>
+    <?$result = clean($_POST['msg'])?>
     <?php $check= true ?>
     <h2><?="RESULTS:"?></h2>
 
