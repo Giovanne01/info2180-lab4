@@ -75,6 +75,7 @@ $superheroes = [
     $msg = trim($msg);
     $msg = stripcslashes($msg);
     $msg = strip_tags($msg);
+    $msg = ucfirst($msg);
     return $msg;
 }?>
 
